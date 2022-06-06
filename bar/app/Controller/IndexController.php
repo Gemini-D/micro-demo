@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Micro\Lib\MicroInterface;
+use Micro\Lib\ROCVersionInterface;
 
 class IndexController extends Controller
 {
@@ -20,7 +21,8 @@ class IndexController extends Controller
         $callbacks = [];
         for ($i = 0; $i < 10000; ++$i) {
             $callbacks[] = static function () {
-                di()->get(MicroInterface::class)->sayHello();
+                // di()->get(MicroInterface::class)->sayHello();
+                di()->get(ROCVersionInterface::class)->sayHello();
             };
         }
 
@@ -36,6 +38,13 @@ class IndexController extends Controller
     {
         return $this->response->success(
             'RET: ' . di()->get(MicroInterface::class)->sayHello()
+        );
+    }
+
+    public function roc()
+    {
+        return $this->response->success(
+            'RET: ' . di()->get(ROCVersionInterface::class)->sayHello()
         );
     }
 }

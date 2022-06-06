@@ -9,3 +9,5 @@
 ```
 Hyperf\RpcMultiplex\Listener\RegisterServiceListener::class,
 ```
+
+- 如何简化 services 配置

@@ -17,6 +17,7 @@ func SetUpRouters() *router.SimpleRouter {
 	r := router.NewSimpleRouter()
 	r.Add("/r_o_c_version/getVersion", &roc_version.GetVersion{})
 	r.Add("/r_o_c_version/hash", &roc_version.Hash{})
+	r.Add("/r_o_c_version/sayHello", &roc_version.SayHello{})
 	return r
 }
 
@@ -27,7 +28,7 @@ func main() {
 
 	handler := server.NewTcpServerHandler(func(route *formatter.JsonRPCRoute, packet *roc.Packet, server *server.TcpServer) (any, exception.ExceptionInterface) {
 		name := zap.String("name", "RPC")
-// 		log.Logger().Info("RPC_RECEIVED", name, zap.String("path", route.Path))
+		// 		log.Logger().Info("RPC_RECEIVED", name, zap.String("path", route.Path))
 		now := time.Now()
 
 		action, ok := r.Routes[route.Path]
