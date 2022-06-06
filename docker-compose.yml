@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+  foo:
+    image: "foo:latest"
+    ports:
+      - 9501:9501
+    build:
+      context: "./foo"
+    networks:
+      - net
+    restart: "always"
+    deploy:
+      replicas: 1
+  bar:
+    image: "bar:latest"
+    ports:
+      - 9502:9501
+    build:
+      context: "./bar"
+    networks:
+      - net
+    restart: "always"
+    deploy:
+      replicas: 1
+  roc:
+    image: "roc:latest"
+    build:
+      context: "./roc"
+    networks:
+      - net
+    restart: "always"
+    deploy:
+      replicas: 1
+networks:
+  net:
