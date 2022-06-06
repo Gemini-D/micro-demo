@@ -15,7 +15,7 @@ import (
 
 func SetUpRouters() *router.SimpleRouter {
 	r := router.NewSimpleRouter()
-	r.Add("/micro/sayHello", &roc_version.GetVersion{})
+	r.Add("/r_o_c_version/getVersion", &roc_version.GetVersion{})
 	r.Add("/r_o_c_version/hash", &roc_version.Hash{})
 	return r
 }
