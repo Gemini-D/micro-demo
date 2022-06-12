@@ -21,8 +21,24 @@ class IndexController extends Controller
         $callbacks = [];
         for ($i = 0; $i < 10000; ++$i) {
             $callbacks[] = static function () {
-                // di()->get(MicroInterface::class)->sayHello();
                 di()->get(ROCVersionInterface::class)->sayHello();
+            };
+        }
+
+        $ms = microtime(true);
+        parallel($callbacks, 100);
+
+        var_dump(microtime(true) - $ms);
+
+        return $this->response->success('Hello ROC');
+    }
+
+    public function index2()
+    {
+        $callbacks = [];
+        for ($i = 0; $i < 10000; ++$i) {
+            $callbacks[] = static function () {
+                di()->get(MicroInterface::class)->sayHello();
             };
         }
 

@@ -13,6 +13,10 @@ namespace Micro\Lib;
 
 interface ROCVersionInterface
 {
+    const NAME = 'ROCVersionService';
+    const HOST = 'roc';
+    const PORT = 9501;
+
     public function getVersion(): string;
 
     public function sayHello(): string;

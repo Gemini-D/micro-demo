@@ -13,5 +13,9 @@ namespace Micro\Lib;
 
 interface MicroInterface
 {
+    const NAME = 'MicroService';
+    const HOST = 'foo';
+    const PORT = 9503;
+
     public function sayHello(): string;
 }

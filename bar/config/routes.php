@@ -12,5 +12,6 @@ declare(strict_types=1);
 use Hyperf\HttpServer\Router\Router;
 
 Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController::index');
+Router::addRoute(['GET', 'POST', 'HEAD'], '/index2', 'App\Controller\IndexController::index2');
 Router::addRoute(['GET', 'POST', 'HEAD'], '/foo', 'App\Controller\IndexController::foo');
 Router::addRoute(['GET', 'POST', 'HEAD'], '/roc', 'App\Controller\IndexController::roc');

@@ -11,3 +11,13 @@ Hyperf\RpcMultiplex\Listener\RegisterServiceListener::class,
 ```
 
 - 如何简化 services 配置
+
+InitRPCListener
+
+## RabbitMQ
+
+消息队列
+
+
+
+
